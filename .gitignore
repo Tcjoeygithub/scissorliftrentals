@@ -42,3 +42,4 @@ Thumbs.db
 # Project specific
 output/
 scissor-lift-companies.xlsx 
+data/scissor-lift-companies.json 
