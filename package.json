@@ -1,0 +1,12 @@
+{
+  "name": "scissor-lift-rentals",
+  "version": "1.0.0",
+  "description": "Directory of scissor lift rental companies across the United States",
+  "scripts": {
+    "build": "python generate_site.py",
+    "start": "python serve.py"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 
