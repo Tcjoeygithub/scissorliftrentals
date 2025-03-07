@@ -1,5 +1,22 @@
 {
   "version": 2,
-  "outputDirectory": "output",
-  "buildCommand": "python generate_site.py"
+  "builds": [
+    {
+      "src": "generate_site_vercel.py",
+      "use": "@vercel/python",
+      "config": {
+        "runtime": "python3.9"
+      }
+    },
+    {
+      "src": "output/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/output/$1"
+    }
+  ]
 } 
