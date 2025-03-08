@@ -40,6 +40,6 @@ ehthumbs.db
 Thumbs.db
 
 # Project specific
-output/
+# output/ - Commented out to include in git for Vercel deployment
 scissor-lift-companies.xlsx 
 data/scissor-lift-companies.json 
