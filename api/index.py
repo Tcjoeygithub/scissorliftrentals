@@ -1,18 +1,16 @@
 from http.server import BaseHTTPRequestHandler
 import os
 import sys
-import importlib.util
 
-# Add the parent directory to the Python path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-# Import the generate_site_vercel module
-spec = importlib.util.spec_from_file_location("generate_site_vercel", "../generate_site_vercel.py")
-generate_site_vercel = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(generate_site_vercel)
+# Import the simple site generator
+from simple_site import main as generate_site
 
 # Run the site generation on startup
-generate_site_vercel.main()
+try:
+    generate_site()
+    print("Site generation completed successfully!")
+except Exception as e:
+    print(f"Error during site generation: {e}")
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):

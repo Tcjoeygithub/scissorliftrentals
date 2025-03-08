@@ -2,18 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "generate_site_vercel.py",
+      "src": "api/index.py",
       "use": "@vercel/python",
       "config": {
         "runtime": "python3.9"
       }
     },
     {
-      "src": "output/**",
+      "src": "output/**/*",
       "use": "@vercel/static"
     }
   ],
   "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.py"
+    },
     {
       "src": "/(.*)",
       "dest": "/output/$1"
